@@ -1,0 +1,273 @@
+/* pages/enroll/enroll.wxss */
+.enstyle{
+  width: 100%;
+  height: 100rpx;
+  border-bottom: #f2eeee solid 2rpx;
+}
+.enstyle2{
+  width: 100%;
+  height: 360rpx;
+  border-bottom: #f2eeee solid 2rpx;
+}
+.entitle{
+  width: 60%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  margin-left: 20%;
+  font-size: 35rpx;
+}
+.sty-title{
+  width: 30%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  float: left;
+}
+.sty-title2{
+  width: 30%;
+  height: 360rpx;
+  line-height: 100rpx;
+  text-align: center;
+  float: left;
+}
+.sty-input{
+  width: 70%;
+  height: 100rpx;
+  line-height: 100rpx;
+  float: left;
+}
+.sty-input2{
+  width: 70%;
+  height: 100rpx;
+  line-height: 100rpx;
+  float: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color:#898888;
+}
+.checkbox1{
+  height: 100rpx;
+  line-height: 100rpx;
+  margin-right: 40rpx;
+}
+.checkbox2{
+  width: 80%;
+  height: 100rpx;
+  line-height: 100rpx;
+  margin-right: 40rpx;
+}
+.enrbtn{
+  width: 50%;
+  background-color: #09bb07;
+  color: white;
+  margin-top: 30rpx;
+  margin-top: 20rpx;
+  margin-bottom: 40rpx;
+}
+.font3{
+  font-size: 25rpx;
+  color: red;
+}
+
+
+
+/* 
+弹框样式 
+*/
+
+/* 遮罩 */
+.shade {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 10;
+}
+.shade_box {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  z-index: 11;
+  min-width: 200rpx;
+  min-height: 200rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+  color: #333;
+  font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0;
+  word-wrap: break-word;
+
+  animation-name:popup;
+  animation-duration:0.2s;
+  animation-timing-function:linear;
+  animation-delay:0;
+  animation-iteration-count:1;
+  animation-direction:normal;
+}
+
+@keyframes popup
+{
+  from{opacity:0;transform:scale(0.3,0.3);}
+  to 	{opacity:1;transform:scale(1,1);}
+}
+
+
+/* 当前弹窗样式 */
+.popup{
+  width: 600rpx;
+  height: 1000rpx;
+  background-color: #ffffff;
+}
+.popup .cxtitle{
+  padding: 0 10rpx;
+  border-bottom: #e5e5e5 solid 1px;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 32rpx;
+  background-color: #f6f6f6;
+}
+.popup .cxtitle2{
+  padding: 0 10rpx;
+  /* border-bottom: #e5e5e5 solid 1px; */
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 32rpx;
+  background-color: #f6f6f6;
+}
+.popup .content{
+  margin: 100rpx;
+  font-size: 40rpx;
+  text-align: center;
+  color: #0099ff;
+}
+.popup .copy{
+  color: #999999;
+  text-align: center;
+}
+.popup .msg{
+  color: #ff0000;
+  text-align: center;
+  margin-top: 30rpx;
+}
+.shade-left{
+  width: 85%;
+  height: 720rpx;
+  float: left;
+}
+.shade-right{
+  width: 15%;
+  height: 720rpx;
+  float: left;
+}
+.left-zimu{
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  background-color: #f2f2f2;
+}
+.left-brand{
+  width: 100%;
+  height: 60px;
+  background-color: white;
+  border-bottom: #cccbcb solid 1px;
+}
+.left-img{
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin: 10px;
+}
+.left-img image{
+  width: 100%;
+  height: 100%;
+}
+.left-title{
+  width: 70%;
+  height: 60px;
+  line-height: 60px;
+  float: left;
+}
+.right-zimu{
+  width: 100%;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  color: #07679e;
+}
+.nav-hover{
+  color:#058ddb;
+}
+.title-gb{
+  float:right;
+  width:60rpx;
+  height:60rpx;
+  text-align:center;
+}
+
+
+.fanhui2{
+  width: 80rpx;
+  height: 60rpx;
+  float: left;
+}
+.second{
+  width: 100%;
+  height: 720rpx;
+}
+.second2{
+  width: 100%;
+  height: 850rpx;
+}
+.sec-foot{
+  width: 100%;
+  height: 70rpx;
+}
+.secondlist{
+  width: 49%;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-top: #f8f8f8 solid 2rpx;
+  border-right: #f8f8f8 solid 2rpx;
+  font-size: 30rpx;
+  float: left;
+}
+.secondlist2{
+  width: 100%;
+  font-size: 30rpx;
+}
+.checkbox-cx{
+  width: 30rpx;
+  height: 30rpx;
+}
+.sec-btn{
+  width: 150rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  float: right;
+  margin-right: 40rpx;
+  background-color: #0099ff;
+  color: white;
+  text-align: center;
+}
+
+/*checkbox 选项框大小  */
+checkbox .wx-checkbox-input {
+  width: 30rpx;
+  height: 30rpx;
+}
+/*checkbox选中后图标样式  */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  text-align: center;
+  font-size: 30rpx;
+  color: #0099ff;
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}

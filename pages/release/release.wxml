@@ -1,0 +1,291 @@
+<!--pages/release/release.wxml-->
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+<!-- 车型弹框 -->
+<view class='shade' hidden='{{popup}}' bindtap='hidePopup'></view>
+<view class='shade_box popup' hidden='{{popup}}'>
+    <view class='cxtitle'>
+      <text>请选择车型：</text>
+      <text class="title-gb" bindtap="hidePopup">x</text>
+    </view>
+    <view class="shade-left">
+      <!-- 品牌 -->
+      <scroll-view scroll-y="true" style="height:720rpx" scroll-into-view="{{toView}}" scroll-top="0" bindscroll="scrollTo" scroll-with-animation>
+        <view wx:for="{{alphabet}}" id="position{{index}}">
+          <view class="left-zimu"><text style="margin-left:20px">{{item}}</text></view>
+          <block wx:if="{{brandlist[item]}}">
+          <view class="left-brand" wx:for="{{brandlist[item]}}" wx:for-item="list" bindtap="showPopup2" data-val="{{list.id}}">
+            
+            <view class="left-img">
+              <image src="{{burl+list.img}}"></image>
+            </view>
+            <view class="left-title">
+              <text style="margin-left:15px">{{list.name}}</text>
+            </view>
+            
+          </view>
+          </block>
+          <block wx:else>
+          <view class="left-brand">
+            
+            <view class="left-img">
+            </view>
+            <view class="left-title">
+              <text style="margin-left:15px">暂无该汽车品牌</text>
+            </view>
+            
+          </view>
+          </block>
+        </view>
+      </scroll-view>
+    </view>
+    
+    <!-- 字母表 -->
+    <view class="shade-right">
+      <scroll-view scroll-y="true" style="height:720rpx" scroll-top="{{scrollTopRight}}">
+        <view class="right-zimu" wx:for="{{alphabet}}" data-index="{{index}}" bindtap="toScrollView">
+          {{item}}
+        </view>
+      </scroll-view>
+    </view>
+</view>
+
+
+<!-- 第二层 -->
+<view class='shade' hidden='{{popup2}}' bindtap='hidePopup2'></view>
+<view class='shade_box popup' hidden='{{popup2}}'>
+    <view class='cxtitle2'>
+      <text class="fanhui2" bindtap="fanhui2">{{' < '}}</text>
+      <text class="title-gb" bindtap="hidePopup2">x</text>
+    </view>
+    
+    <view class="second">
+      <scroll-view scroll-y="true" style="height:100%">
+        <view wx:for="{{qc2list}}">
+          <view class="secondlist" bindtap="showPopup3" data-id="{{item.id}}"><text style="margin-left:20rpx">{{item.name}}</text></view>
+        </view>
+      </scroll-view>
+    </view> 
+</view>
+
+
+<!-- 第三层 -->
+<view class='shade' hidden='{{popup3}}' bindtap='hidePopup3'></view>
+<view class='shade_box popup' hidden='{{popup3}}'>
+    <view class='cxtitle2'>
+      <text class="fanhui2" bindtap="fanhui3">{{' < '}}</text>
+      <text class="title-gb" bindtap="hidePopup2">x</text>
+    </view>
+    
+    <view class="second">
+      <scroll-view scroll-y="true" style="height:100%">
+        <view wx:for="{{qc3list}}">
+          <view class="secondlist" bindtap="showPopup4" data-id="{{item.id}}"><text style="margin-left:20rpx">{{item.name}}</text></view>
+        </view>
+      </scroll-view>
+    </view> 
+</view>
+
+<!-- 第四层 -->
+<view class='shade' hidden='{{popup4}}' bindtap='hidePopup4'></view>
+<view class='shade_box popup' hidden='{{popup4}}'>
+    <view class='cxtitle2'>
+      <text class="fanhui2" bindtap="fanhui4">{{' < '}}</text>
+      <text class="title-gb" bindtap="hidePopup2">x</text>
+    </view>
+    
+    <view class="second2">
+      <scroll-view scroll-y="true" style="height:100%">
+
+        <checkbox-group bindchange="checkboxChange">
+          <view wx:for="{{listData}}" wx:key="">
+            <view class="secondlist">
+              <checkbox value="{{item.id}}|{{item.name}}" checked="{{item.checked}}" style="margin-left: 20rpx;float:left"/>
+              <view class="text-font2">{{item.name}}</view>
+            </view> 
+          </view>
+        </checkbox-group>
+
+      </scroll-view>
+    </view>
+
+    <view class="sec-foot">
+      <checkbox  bindtap="selectall" style="margin-left: 20rpx"/>全选 
+      <view class="sec-btn" bindtap="confirmcx">确认</view> 
+    </view> 
+</view>
+
+
+<view bindtap="hideIcon">
+  <!-- 上传图片 -->
+  <view class="rel-style1">
+    <view class="title">产品图片</view>
+    <view class="pic-btn" bindtap="upload">点击上传</view>
+  </view>
+  <!-- ͼƬ -->
+  <view class="rel-style4">
+    <view class="rel-pic" wx:for="{{pics}}">
+       <image src="{{url+item}}"></image>
+     </view>
+  </view>
+  <!-- 配件名称 -->
+  <view class="rel-style1" id="sel-thr">
+    <view class="title">配件名称：</view>
+    <input class="input1" catchtap="bindShowMsg3" value="{{pj_name}}" data-name="{{pj_name}}" bindinput="bindKeyInput" maxlength="50"></input>
+    <!-- 下拉需要显示的列表 -->
+    <view class="select_box3" wx:if="{{select3}}">
+      <scroll-view scroll-y="true" style="height:100%">
+        <block wx:if="{{pj_list.length!=0}}">
+        <view wx:for="{{pj_list}}">
+          <view class="select_one" bindtap="mySelect3" data-id="{{item.id}}" data-name="{{item.name}}">{{item.name}}</view>
+        </view>
+        </block>
+        <block wx:else>
+        <view class="select_one">
+             <view class="weui-loading" hidden="{{loadingHidden}}"></view>
+             <view class="weui-loadmore__tips">{{loading}}</view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+  </view>
+  <!-- 配件标题 -->
+  <view class="rel-style1">
+    <view class="title">配件标题：</view>
+    <input class="input1" placeholder="车型+产品名称+属性" bindinput="commodity" data-name="cat_name" maxlength="50"></input>
+  </view>
+  <!-- 原厂编码 -->
+  <view class="rel-style1">
+    <view class="title">原厂编码：</view>
+    <input class="input1" placeholder="可不填写" bindinput="commodity" data-name="code" maxlength="50"></input>
+  </view>
+  <!-- 通用号码 -->
+  <view class="rel-style3">
+    <view class="title">通用号码：</view>
+      <view class="addphone">
+        <input class="input4" data-tag="store_phone" placeholder="可不填写" bindinput="commodity" data-name="cjcode" maxlength="50"></input>
+        <view class="add" bindtap='addNew'>+</view>
+      </view>
+      <view wx:for="{{addphone}}" class="addphone">
+        <input class="input4" data-tag="store_phone" placeholder="可不填写" bindinput="commodity" data-name="cjcode"></input>
+        <view class="add" data-index="{{index}}" bindtap='delNew'>-</view>  
+      </view>
+
+  </view>
+  <!-- 品质 -->
+  <view class="rel-style1" id="sel_one">
+    <view class="title">品质：</view>
+    <view class="input2" catchtap="bindShowMsg">
+      <view class="store-name">{{pz_name}}</view>
+      <view class="store-icon">
+        <image src="../../image/choose.png"></image>
+      </view>
+    </view>
+    <!-- 下拉列表 -->
+    <view class="select_box" wx:if="{{select}}">
+      <scroll-view scroll-y="true" style="height:100%">
+        <view wx:for="{{pz_list}}">
+          <view class="select_one" bindtap="mySelect" data-id="{{item.id}}" data-name="{{item.name}}">{{item.name}}</view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <!-- 品牌件二级列表 -->
+  <view class="rel-style1" id="sel_four"  wx:if="{{ppshow}}">
+    <view class="title"></view>
+    <view class="input2" bindtap="bindShowMsg4">
+      <view class="store-name">{{pp_name}}</view>
+    </view>
+    <!-- 下拉列表 -->
+    <view class="select_box4" wx:if="{{select4}}">
+      <scroll-view scroll-y="true" style="height:100%">
+        <view wx:for="{{pp_list}}">
+          <view class="select_one" bindtap="mySelect4" data-id="{{item.id}}" data-name="{{item.name}}">{{item.name}}</view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <!-- 拆车件二级列表 -->
+  <view class="rel-style1" id="sel_five" wx:if="{{ccshow}}">
+    <view class="title"></view>
+    <view class="input2" bindtap="bindShowMsg5">
+      <view class="store-name">{{cc_name}}</view>
+    </view>
+    <!-- 下拉列表 -->
+    <view class="select_box5" wx:if="{{select5}}">
+      <scroll-view scroll-y="true" style="height:100%">
+        <view wx:for="{{cc_list}}">
+          <view class="select_one" bindtap="mySelect5" data-id="{{item.id}}" data-name="{{item.name}}">{{item.name}}</view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <!-- 销售价格 -->
+  <view class="rel-style1">
+    <view class="title">销售价格：</view>
+    <input class="input1" placeholder="成交价格" bindinput="commodity" data-name="xsjg" maxlength="50"></input>
+  </view>
+  <!-- 库存数量 -->
+  <view class="rel-style1">
+    <view class="title">库存数量：</view>
+    <input class="input1" bindinput="commodity" data-name="stock" maxlength="50" type="number"></input>
+  </view>
+  <!-- 商品规格 -->
+  <view class="rel-style1">
+    <view class="title">商品规格：</view>
+    <input class="input3" bindinput="commodity" data-name="bzdw" maxlength="50"></input>
+    <view class="text2">个</view>
+  </view>
+  <!-- 保质时间 -->
+  <view class="rel-style1" id="sel_two">
+    <view class="title">保质时间：</view>
+    <view class="input3" catchtap="bindShowMsg2">
+    <view class="store-name">{{zb_time}}</view>
+      <view class="store-icon">
+        <image src="../../image/choose.png"></image>
+      </view>
+    </view>
+    <view class="text2">天</view>
+    <!-- 下拉需要显示的列表 -->
+    <view class="select_box2" wx:if="{{select2}}">
+      <view wx:for="{{zb_list}}">
+        <view class="select_two" bindtap="mySelect2" data-time="{{item.time}}">{{item.time}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 售后服务 -->
+  <view class="rel-style3">
+    <view class="title">售后服务：</view>
+    <view class="text1">
+      <checkbox-group bindchange="checkboxChangefw">
+        <view wx:for="{{servicelist}}" wx:key="">
+          <view class="secondlist">
+            <checkbox value="{{item.clause}}" checked="{{item.checked}}" style="margin-left: 5rpx;"/> <text style="font-size:25rpx">{{item.clause}}</text>
+          </view> 
+        </view>
+      </checkbox-group>
+    </view>
+  </view>
+  <!-- 适用车型 -->
+  <view class="rel-style3" style="margin-bottom:20rpx">
+    <view class="title">适用车型：</view>
+    <view class="cxpic" bindtap='showPopup'>
+      <image src="../../image/vw.jpg"></image>
+      <image src="../../image/vw.jpg"></image>
+      <image src="../../image/vw.jpg"></image>
+    </view>
+    <view class="cxchoose" bindtap='showPopup'>选择车型{{' > '}}</view>
+  </view>
+
+  <!-- 选择的车型 -->
+  <view class="rel-style3" style="margin-bottom:40rpx" hidden='{{chexing}}'>
+
+    <view class="choose-cx" wx:for="{{model}}">
+      <image src="../../image/del.png"></image>
+      <view class="choose-title">{{item.name}}</view>
+    </view>
+
+  </view>
+  <!-- 发布 -->
+  <button class="btn-fb" bindtap="submit">发布</button>
+
+</view>

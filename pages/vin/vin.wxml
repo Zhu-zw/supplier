@@ -1,0 +1,108 @@
+<!--pages/vin/vin.wxml-->
+<view class="top-pic" wx:if="{{picshow}}">
+  <image src="../../image/vin01.png"></image>
+</view>
+
+
+<!-- 头部搜索 -->
+<view class="search">
+  <view class="up-top">
+<!-- 相机 -->
+    <view class="searchpic" bindtap="changeAvatar">
+      <view class="iconfont icon-xiangji" style="color:#9c9b9b;font-size:40rpx"></view>
+    </view>
+<!-- 输入框 -->
+    <input class="top-input1" placeholder="请输入车架号"  value='{{inputValue}}'></input>
+<!-- 删除 -->
+    <view class="top-close" bindtap="Cancel">
+      <view class="iconfont icon-guanbi" style="font-size:40rpx"></view>
+    </view>
+<!-- 搜索 -->
+    <view class="top-search">
+      <view class="iconfont icon-sousuo" style="font-size:40rpx"></view>
+    </view>
+  </view> 
+</view>
+
+<!-- 信息标题 -->
+<view class="info-title">
+  <view class="title-name">车辆信息</view>
+</view>
+<!-- 车辆信息 -->
+<view class="info">
+  <view class="info-sty1">
+    <view class="sty-font1">生产厂家：</view>
+    <view class="sty-font2">广汽丰田</view>
+  </view>
+
+  <view class="info-sty1">
+    <view class="sty-font1">汽车品牌：</view>
+    <view class="sty-font2">丰田</view>
+  </view>
+
+  <view class="info-sty1">
+    <view class="sty-font1">车型系列：</view>
+    <view class="sty-font2">汉兰达</view>
+  </view>
+
+  <view class="info-sty1">
+    <view class="sty-font1">车型配置：</view>
+    <view class="sty-font2">3.5手自一体四驱7座至尊版</view>
+  </view>
+
+  <view class="info-sty1">
+    <view class="sty-font1">出厂年份：</view>
+    <view class="sty-font2">2010年</view>
+  </view>
+
+  <view class="info-sty1">
+    <view class="sty-font1">发动机号：</view>
+    <view class="sty-font2">2GR-FE</view>
+  </view>
+
+  <view class="info-sty1">
+    <view class="sty-font1">发动机功率：</view>
+    <view class="sty-font2">201kW</view>
+  </view>
+
+  <view class="info-sty1">
+    <view class="sty-font1">发动机排量：</view>
+    <view class="sty-font2">3.5ml</view>
+  </view>
+
+  <view class="info-sty1">
+    <view class="sty-font1">燃料类型：</view>
+    <view class="sty-font2">汽油</view>
+  </view>
+
+  <view class="info-sty1">
+    <view class="sty-font1">变速箱类型：</view>
+    <view class="sty-font2">手自一体变速箱（AMT）</view>
+  </view>
+
+  <view class="info-sty1">
+    <view class="sty-font1">车身形式：</view>
+    <view class="sty-font2">两箱</view>
+  </view>
+
+  <view class="info-sty1">
+    <view class="sty-font1">气缸数量：</view>
+    <view class="sty-font2">6</view>
+  </view>
+
+  <view class="info-sty1">
+    <view class="sty-font1">喷射类型：</view>
+    <view class="sty-font2"></view>
+  </view>
+
+  <view class="info-sty1">
+    <view class="sty-font1">档位数量：</view>
+    <view class="sty-font2">5</view>
+  </view>
+
+  <view class="info-sty1">
+    <view class="sty-font1">驱动方式：</view>
+    <view class="sty-font2">全时四驱</view>
+  </view>
+
+</view>

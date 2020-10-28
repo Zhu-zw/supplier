@@ -1,0 +1,22 @@
+<!--pages/newlogin/newlogin.wxml-->
+<view class="content">
+  <view class="regpic">
+    <image src="../../image/topbg3.png"></image>
+  </view>
+  <view class="con">
+    <!-- 账号 -->
+    <view class="enstyle" style="margin-top:30rpx">
+      <view class="sty-title">账号：</view>
+      <input class="sty-input" placeholder="请输入账号"></input>
+    </view>
+    <!-- 密码 -->
+    <view class="enstyle">
+      <view class="sty-title">密码：</view>
+      <input class="sty-input" type="password" placeholder="请输入密码"></input>
+    </view>
+    <!-- 登录 -->
+    <view class="enrbtn">绑定账号</view>
+  </view>
+
+
+</view>

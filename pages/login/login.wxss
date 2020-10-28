@@ -1,0 +1,61 @@
+/* pages/login/login.wxss */
+#dl{
+  position: fixed;
+  top: 0rpx;
+  width: 100%;
+  height: 100vh;
+  z-index:999;
+  background-color: rgb(116, 112, 112,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  text-align: center;
+}
+.dl_box{
+  width: 600rpx;
+  background:white;
+}
+.dl_box .offer_log{
+   width:65px;
+   height:65px;
+   border-radius:100px;
+   background:#fff;
+   margin:0px auto;
+   margin-top:-35px;
+   border:4px solid white;
+}
+.dl_box .offer_log image{
+  width:100%;
+  height:100%;
+  border-radius:100px;
+}
+.dl_box .remind_text{
+   font-size:30rpx;
+   color:#555;
+   margin-top: 20rpx;
+}
+.dl_box .title1{
+  font-size: 32rpx;
+  color: #000;
+  text-align: center;
+  margin-top: 40rpx;
+}
+.dl_box .btn{
+  display:flex;
+  margin:0px;
+  margin-top: 54rpx;
+}
+.dl_box .btn .close_btn:after{
+  border:none;
+  height:80rpx;
+  width:50%;
+  font-weight:normal;
+  font-size:24rpx;
+}
+.btn-wx{
+  width: 90%;
+  margin-left: 5%;
+  background:#37d542;
+  color:white;
+  margin-bottom: 20rpx;
+}

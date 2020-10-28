@@ -1,0 +1,156 @@
+<!--pages/selling/selling.wxml-->
+<view class="content1">
+
+<!-- 车型弹框 -->
+<view class='shade' hidden='{{popup}}' bindtap='hidePopup'></view>
+<view class='shade_box popup' hidden='{{popup}}'>
+    <view class='cxtitle'>
+      <text>请选择车型：</text>
+      <text class="title-gb" bindtap="hidePopup">x</text>
+    </view>
+    <view class="shade-left" bindtap="showPopup2">
+      <!-- 品牌 -->
+      <scroll-view scroll-y="true" style="height:720rpx" scroll-into-view="{{toView}}" scroll-top="0" bindscroll="scrollTo" scroll-with-animation>
+        <view wx:for="{{alphabet}}" id="position{{index}}">
+          <view class="left-zimu"><text style="margin-left:20px">{{item}}</text></view>
+          <block wx:if="{{brandlist[item]}}">
+          <view class="left-brand" wx:for="{{brandlist[item]}}" wx:for-item="list" bindtap="showPopup2" data-val="{{'{'+list.id+'}'}}" data-value="{{list.name}}">
+            
+            <view class="left-img">
+              <image src="{{burl+list.img}}"></image>
+            </view>
+            <view class="left-title">
+              <text style="margin-left:15px">{{list.name}}</text>
+            </view>
+            
+          </view>
+          </block>
+          <block wx:else>
+          <view class="left-brand">
+            
+            <view class="left-img">
+            </view>
+            <view class="left-title">
+              <text style="margin-left:15px">暂无该汽车品牌</text>
+            </view>
+            
+          </view>
+          </block>
+        </view>
+      </scroll-view>
+    </view>
+    
+    <!-- 字母表 -->
+    <view class="shade-right">
+      <scroll-view scroll-y="true" style="height:720rpx" scroll-top="{{scrollTopRight}}">
+        <view class="right-zimu" wx:for="{{alphabet}}" data-index="{{index}}" bindtap="toScrollView">
+          {{item}}
+        </view>
+      </scroll-view>
+    </view>
+</view>
+
+
+
+
+
+<!-- 头部搜索 -->
+  <view class="search">
+    <view class="up-top">
+
+      <input class="top-input1" placeholder="请输入产品名称/编码" bindinput="bindKeyInput"></input>
+      <view class="top-search" bindtap="search">
+        <view class="iconfont icon-sousuo"></view>
+      </view>
+      <view class="top-cx" bindtap='showPopup'>
+        <view class="iconfont2 icon-yingyong"></view>
+      </view>
+
+    </view> 
+  </view>
+
+  <view class="con">
+    <!-- 导航 -->
+    <view class='top_nav'>
+      <view class="nav-name {{item.typeId == currentId ? 'nav-hover':''}}" wx:for="{{section}}" wx:key="id" id='{{item.typeId}}' catchtap='handleTap'>
+        {{item.name}}
+      </view>
+    </view>
+
+    <!-- 出售中 -->
+    <view class="content2">
+
+      <view class="con-info">
+        <scroll-view scroll-y="true" style="height:100%" bindscrolltolower="scrollBottom">
+         <block wx:if="{{listData.length>0}}">
+          <checkbox-group bindchange="checkboxChange">
+            <view class="goodslist" wx:for="{{listData}}">
+              <view class="goodsck">
+                <checkbox value="{{item.id}}" checked="{{item.checked}}" style="margin-left: 20rpx;margin-top:120rpx"/>
+              </view>
+              <view class="right-top">
+                <view class="goods-title">{{item.cat_name}}</view>
+                <view class="goods-brand">{{item.a_content}}</view>
+              </view>
+              <view class="goods-con">
+                
+                <view class="goods-img">
+                  <image src="{{item.img?burl+item.img:url+'image/d0a780f7a774850d391a6b4d410234c.png'}}"></image>
+                </view>
+                <view class="goods-title2"></view>
+                
+                <view class="type">
+                  <view class="goods-type">
+                    <view class="type-font">{{item.code}}</view>
+                    <view class="type-font">原厂编码</view>
+                  </view>
+                  <view class="goods-type">
+                    <view class="type-font">{{item.cn_pjpz}}</view>
+                    <view class="type-font">配件品质</view>
+                  </view>
+                  <view class="goods-type">
+                    <view class="type-font" style="color: red;">{{item.xsjg}}</view>
+                    <view class="type-font">销售价格</view>
+                  </view>
+                  <view class="goods-type">
+                    <view class="type-font">{{item.cjcode}}</view>
+                    <view class="type-font">通用号码</view>
+                  </view>
+                  <view class="goods-type">
+                    <view class="type-font">{{item.bzdw}}</view>
+                    <view class="type-font">产品规格</view>
+                  </view>
+                  <view class="goods-type" bindtap="release">
+                    <view class="goods-xg">修改</view>
+                  </view>
+                </view>
+                
+              </view>
+                      
+            </view>
+          </checkbox-group>
+          </block>
+          <block wx:else>
+             <view style="width:100%;text-align: center;margin-top:50px;font-size:14px;color:#444;">{{loading_tip}}</view>
+          </block>
+        </scroll-view>
+      </view>
+
+      <view class="con-foot">
+        <view class="foot-left">
+          <checkbox  bindtap="selectall" style="margin-left: 20rpx;margin-top:20rpx"/>全选
+        </view>
+
+        <view class="foot-right">
+          <view class="foot-btn1" bindtap="s_remove">删除</view>
+          <view class="foot-btn2" bindtap="sold_out"><block wx:if="{{currentId==2}}">下架</block><block wx:else>上架</block></view>
+        </view>
+         
+      </view>
+
+    </view>
+
+
+  </view>
+
+</view>

@@ -1,0 +1,29 @@
+<!--pages/chat/chat.wxml-->
+<view>
+
+  <scroll-view scroll-y="true" style="height:100%">
+    <view class="main_item">
+      <movable-area>
+        <movable-view damping="100" out-of-bounds="true" direction="horizontal" x="{{x}}" animation="false" bindchange="handleMovableChange" capture-bind:touchstart="handleTouchestart" capture-bind:touchend="handleTouchend">
+          <view class="main_item_content ">
+            <view class="chat-list" bindtap="chatinfo">
+              <view class="chat_img">
+                <image class="img" src="../../image/portrait02.jpg"></image>
+              </view>
+              <view class="chat-box">
+                <view class="customer1">223232fhfghdfhfgdhsdfsdfdsfs</view>
+                <view class="customer2">87987asdsadsadsadretertert</view>
+              </view>
+              <view class="right">
+                <view class="time">21:00</view>
+                <view class="news">1</view>
+              </view>
+            </view> 
+          </view>
+        </movable-view>        
+      </movable-area>
+      <view class="delete_btn " data-productIndex="{{index}} " bindtap="handleDeleteProduct ">删除</view>  
+    </view>
+  </scroll-view>
+
+</view>

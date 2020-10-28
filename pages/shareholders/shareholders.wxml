@@ -1,0 +1,70 @@
+<!--pages/shareholders/shareholders.wxml-->
+<view class="content">
+    <view class="hunt">
+      <view class="hunt-font3" style="text-align:center;">共享股东({{fanslist.length}})</view>
+      <view class="hunt-font3">股东资金￥{{money}}</view>
+      <view class="hunt-font3" style="width:37%;margin-left:3%">股东分红￥0</view>
+
+      <view class="up-top">
+
+        <input class="top-input1" placeholder="微信名搜索" bindinput="bindKeyInput" maxlength="45"></input>
+        <view class="top-search">
+          <view class="iconfont icon-sousuo" bindtap="search"></view>
+        </view>
+
+      </view> 
+
+
+    </view>
+
+    <view class="myfans">
+      <scroll-view scroll-y="true" style="height:100%">
+      <block wx:if="{{fanslist.length>0}}">
+        <view class="fanslist" wx:for="{{fanslist}}">
+          <view class="list-left">
+            <image src="{{item.userimg}}"></image>
+          </view>
+
+          <view class="list-cen">
+            <view class="fans-name">{{item.username}}</view>
+            <view class="fans-info">
+              <text class="text01">持股比例：</text>
+
+              <text class="text01">入股资金</text>
+              <input class="username-p2" value="{{item.fund}}" disabled='{{isDisabled}}' bindinput="bindKeyValue" data-name="fund"></input> 
+              <!-- <input class="username-p4" value="{{item.fund}}" disabled='{{isDisabled}}' wx:if="{{inputshow2}}"></input>  -->
+              <text class="text01">元，</text>
+
+              <text class="text01">分红比例</text>
+              <input class="username-p2" value="{{item.ratio}}" disabled='{{isDisabled}}' bindinput="bindKeyValue" data-name="ratio"></input> 
+              <!-- <input class="username-p4" value="{{item.ratio}}" disabled='{{isDisabled}}' wx:if="{{inputshow2}}"></input>  -->
+              <text class="text01">%</text>
+
+              <text class="text01">累计分红：</text>
+              <view class="username-p3" style="width:20%">{{number3}}</view>
+               <text class="text01">元</text>
+
+            </view>
+          </view>
+
+          <view class="list-right">
+<!-- 设置共享股东 -->
+            <view class="user-btn2" bindtap="submit" data-zhid="{{item.zhid}}" wx:if="{{item.type==0}}">设置共享股东</view>
+            <view class="user-btn2" bindtap="cancel" data-id="{{item.id?item.id:''}}" wx:if="{{item.type==1}}">取消共享股东</view>
+<!-- 修改持股 -->
+            <view class="user-btn1show" bindtap="submit" data-gd_id="{{item.id}}" wx:if="{{item.type!=0}}">修改持股</view>
+          </view>
+
+        </view>
+
+        <!-- 加载更多 -->
+        <!-- <view class="jiaZai_more" >
+          <view class="loader" hidden="{{show1}}">Loading...</view>
+          <view hidden="{{show2}}" bindtap="jiazai">{{tip}}</view>
+        </view> -->
+       </block>
+        <view style="width:100%;text-align: center;margin-top:50px;font-size:14px;color:#444;" wx:if="{{loading_tip}}">{{loading_tip}}</view>
+      </scroll-view>
+    </view>
+</view>
+

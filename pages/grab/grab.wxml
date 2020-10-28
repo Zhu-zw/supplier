@@ -1,0 +1,139 @@
+<!--pages/enquiry/enquiry.wxml-->
+<view class="content">
+
+
+<!-- 车型弹框 -->
+  <view class='shade' hidden='{{popup}}' bindtap='hidePopup'></view>
+  <view class='shade_box popup' hidden='{{popup}}'>
+      <view class='title'>
+        <text>请选择车型：</text>
+        <text class="title-gb" bindtap="hidePopup">x</text>
+      </view>
+      <view class="shade-left">
+        <!-- 品牌 -->
+        <scroll-view scroll-y="true" style="height:720rpx" scroll-into-view="{{toView}}" scroll-top="0" bindscroll="scrollTo" scroll-with-animation>
+          <view wx:for="{{alphabet}}" id="position{{index}}">
+            <view class="left-zimu"><text style="margin-left:20px">{{item}}</text></view>
+            <block wx:if="{{brandlist[item]}}">
+            <view class="left-brand" wx:for="{{brandlist[item]}}" wx:for-item="list" bindtap="handleTap" data-val="{{'{'+list.id+'}'}}" data-value="{{list.name}}">
+             
+              <view class="left-img">
+                <image src="{{burl+list.img}}"></image>
+              </view>
+              <view class="left-title">
+                <text style="margin-left:15px">{{list.name}}</text>
+              </view>
+              
+            </view>
+           </block>
+           <block wx:else>
+            <view class="left-brand">
+             
+              <view class="left-img">
+              </view>
+              <view class="left-title">
+                <text style="margin-left:15px">暂无该汽车品牌</text>
+              </view>
+              
+            </view>
+           </block>
+          </view>
+        </scroll-view>
+      </view>
+      
+      <!-- 字母表 -->
+      <view class="shade-right">
+        <scroll-view scroll-y="true" style="height:720rpx" scroll-top="{{scrollTopRight}}">
+          <view class="right-zimu" wx:for="{{alphabet}}" data-index="{{index}}" bindtap="toScrollView">
+            {{item}}
+          </view>
+        </scroll-view>
+      </view>
+  </view>
+
+
+
+
+
+  <view class="top">
+    <view class="top-title" wx:if="{{!xj_dz && !xj_cx}}">推荐</view>
+    <view class="top-title whole" wx:else bindtap="whole">全部</view>
+    <view class="top-city">
+      <!-- <view class="city-name">广州</view> -->
+      <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
+        <view class="picker" style="height:60rpx;line-height:60rpx;color:#666;float:left">
+            <view style="float:left;padding-left:10rpx">{{xj_dz?xj_dz:'选择省份'}}</view>
+            <image src="../../image/choose.png"></image>
+        </view>
+      </picker>
+    </view>
+    <view class="top-cx" bindtap='showPopup'>
+      <view class="cx-name">{{model_}}</view>
+      <image src="../../image/choose.png"></image>
+    </view>
+  </view>
+
+
+  <view class="cen">
+    <scroll-view scroll-y="true" style="height:100%" bindscrolltolower="scrollBottom" scroll-top="{{resetScrollTop}}" bindscroll="scroll">
+
+      <view class="enqlist" wx:for="{{enqlist}}" bindtap="inquiry" data-zhid="{{item.zhid}}" data-xj_id="{{item.id}}">
+        <view class="list-top">
+          <view class="top-left">
+<!-- 头像、名称 -->
+            <view class="list-name">
+              <image src="{{item.userimg}}"></image>
+              <view class="storename">{{item.username}}</view>
+            </view>
+<!-- 地址 -->
+            <view class="list-address">{{item.prov?item.prov:''}} {{item.city?item.city:''}}</view>
+
+            <view class="top-bottom">
+              <view class="invoice">{{item.Invoice_or_not}}</view>
+              <view class="business">
+                  <block wx:for="{{item.pz}}" wx:for-item="pz_name">
+                    <text wx:if="{{pz_name==1}}">原厂件 </text> 
+                    <text wx:elif="{{pz_name==2}}"> 品牌件 </text> 
+                    <text wx:elif="{{pz_name==3}}"> 拆车件 </text> 
+                  </block>
+              </view>
+            </view> 
+          </view>
+
+          <view class="top-right">
+            <view class="toppic">
+              <image src="{{item.model_img}}"></image>
+            </view>
+            <view class="list-time">{{item.time}}</view>
+          </view> 
+        </view>
+<!-- 图片 -->
+        <view class="cen-pic">
+        <!-- <block wx:if="{{item.img==false}}">
+            <image src="{{url+'image/d0a780f7a774850d391a6b4d410234c.png'}}"></image>
+         </block>
+          <block wx:else> -->
+          <block wx:for="{{item.img}}" wx:for-item="xj_img" wx:for-index="i">
+            <block wx:if="{{i<=2}}">
+               <image wx:if="{{realScrollTop+driveHeight*2 > (index*70)}}" src="{{xj_img?url+xj_img:url+'image/d0a780f7a774850d391a6b4d410234c.png'}}"></image>
+               <image wx:else src=""></image>
+            </block>
+          </block>
+         <!-- </block> -->
+         
+
+        </view>
+<!-- 说明 -->
+        <view class="explain">需求：{{item.demand_content}}</view>
+
+      </view>
+
+<!-- 正在加载 -->
+      <view class="weui-loadmore" hidden="{{loadingHidden}}">
+        <view class="weui-loading" wx:if="{{circlehiden}}"></view>
+        <view class="weui-loadmore__tips">{{tip}}</view>
+      </view>
+    
+    </scroll-view>
+  </view>
+</view>

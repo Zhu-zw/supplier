@@ -1,0 +1,72 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/vin/vin",
+    "pages/myinventory/myinventory",
+    "pages/newlogin/newlogin",
+    "pages/centralware/centralware",
+    "pages/release/release",
+    "pages/chat/chat",
+    "pages/chat-interface/chat-interface",
+    "pages/grab/grab",
+    "pages/enroll/enroll",
+    "pages/login/login",
+    "pages/binding/binding",
+    "pages/selling/selling",
+    "pages/myfans/myfans",
+    "pages/stockorder/stockorder",
+    "pages/details/details",
+    "pages/centralware2/centralware2",
+    "pages/shareholders/shareholders",
+    "pages/order/order"
+    
+  ],
+  "tabBar": { 
+    "color": "#ccc", 
+    "borderStyle": "black", 
+    "selectedColor": "#107ebe", 
+    "list": [ 
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath":"image/home.png",
+        "selectedIconPath":"image/home-active.png"
+      },
+      {
+        "pagePath": "pages/release/release",
+        "text": "发布商品",
+        "iconPath":"image/release.png",
+        "selectedIconPath":"image/release-active.png"
+      },
+      {
+        "pagePath": "pages/grab/grab",
+        "text": "买家询单",
+        "iconPath":"image/grab.png",
+        "selectedIconPath":"image/grab-active.png"
+      },
+      {
+        "pagePath": "pages/chat/chat",
+        "text": "消息",
+        "iconPath":"image/news.png",
+        "selectedIconPath":"image/news-active.png"
+      }
+    ]
+  },
+
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "汽车配件工厂店",
+    "navigationBarTextStyle":"black"
+  },
+  "useExtendedLib": {
+    "kbone": true,
+    "weui": true
+  },
+  "networkTimeout": {
+    "request": 8000,
+    "downloadFile": 10000
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

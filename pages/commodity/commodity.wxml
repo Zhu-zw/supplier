@@ -1,0 +1,138 @@
+
+<view class="content">
+  <scroll-view scroll-y="true" style="height:92%">
+    <view class="address2" bindtap="showCancelOrder">
+      <view class="add-left">
+        <view class="order-font5">收货地址</view>
+        <block wx:if="{{addres[casIndex]}}">
+        <view class="order-font2">{{addres[casIndex].username}}</view>
+        <view class="order-font2">{{addres[casIndex].phone}}</view>
+        <view class="order-font2">{{addres[casIndex].province+addres[casIndex].city+addres[casIndex].area+addres[casIndex].address}}</view>
+        <view></view>
+       </block>
+       <block wx:else>
+        <view class="order-font2">设置收货地址</view>
+       </block>
+      </view>
+      <view id="add-right">
+        <text decode="{{true}}">&gt;</text>
+      </view>
+    </view>
+    <!-- 新增地址弹框 -->
+    <view wx:if='{{showModal}}'>
+      <view class='mask_layer' bindtap='modal_click_Hidden' />
+      <view class='modal_box'>
+        <view class="title">选择地址</view>
+        <view class='content'>
+          <scroll-view scroll-y="true" style="height:250px">
+            <view class="con-sty" wx:for="{{addres}}" wx:key="index" bindtap="address" data-index="{{index}}">
+              <text class="con-font1">{{item.username}}</text>
+              <text class="con-font2">{{item.phone}}</text>
+              <view class="con-add">{{item.province+item.city+item.area+item.address}}</view>
+            </view>
+          </scroll-view>
+        </view>
+        <view class='btn1'>
+          <view bindtap='modal_click_Hidden' class='cancel'>取消</view>
+          <view class="Sure" bindtap="addup">新增地址</view>
+        </view>
+      </view>
+    </view>
+    <view class="commodity">
+      <view class="com-top">
+      商品清单
+      </view>
+
+      <view style="whitd:100%;  height: 250rpx;" wx:for="{{goods}}">
+        <view class="ckb-img">
+          <image wx:if="{{item.img}}" src="{{burl+item.img}}"></image>
+          <image wx:else src="{{burl}}/static/image/moren.png"></image>
+        </view>
+
+        <view class="com-right2">
+          <view class="goods-name">{{item.cat_name}}</view>
+          <view class="goods-box">
+            <view class="box-price">￥{{item.price}} x <text style="color:#6e6b6b">{{item.number}}</text></view>
+            <view class="box2"> 
+              <text class="{{minusStatus}}" bindtap="bindMinus" data-key="{{index}}">-</text>
+              <input type="number" bindchange="bindManual" value="{{item.number}}" />
+              <text class="normal" bindtap="bindPlus" data-key="{{index}}">+</text> 
+            </view>
+          </view>
+        </view>
+        
+      </view>
+      
+
+    </view>
+
+
+    <view class="pickup">
+      <view class="order-font1">取货方式：</view>
+      <view class="checkboxgroup">
+        <block wx:for="{{parameter}}" wx:for-index="parameter">
+            <view class='parameter-info text-over {{item.checked?"checked_parameter":""}}' data-id='{{parameter}}' bindtap='parameterTap'>{{item.value}}</view>
+          </block>
+        </view>
+
+    </view>
+
+  <!-- <view class="service">
+    <view class="order-font1">服务门店</view>
+    <view class="iconfont icon-dingwei"></view>
+    <view class="service-add">
+      <view class="order-font4">{{gender.companyname}}</view>
+      <view class="order-font4">{{gender.prov}}{{gender.city}}{{gender.dist}}{{gender.address}}</view>
+    </view>
+    <view class="change" bindtap='buttonTap'>更换</view>
+
+    <modal title="更换门店" hidden="{{modalHidden}}" bindconfirm="modalConfirm" bindcancel="modalCandel">
+      <scroll-view scroll-y="true" style="height:340px"> 
+        <radio-group bindchange="bandleChange" >
+          <block wx:for="{{storelist}}" wx:key="index">
+            <radio class="mod-rad" value="{{index}}" checked="{{item.checked}}">
+              <view class="mod-img">
+                <image src="{{item.img}}"></image>
+              </view>
+              <view class="mod-store">{{item.prov}}{{item.city}}{{item.dist}}{{item.address}}{{item.companyname}}</view>
+              <text class="mod-text" wx:if="{{item.distance}}">距离您{{item.distance}}Km</text>
+            </radio>
+          </block>
+        </radio-group>
+      </scroll-view> 
+      
+    </modal>
+
+  </view>     -->
+  <!-- <view class="payment">
+    <view class="pay-wx">
+      <radio-group class="radio-group" bindchange="radioChange">
+          <radio  class="radio" bindtap = "bindtap1" wx:for-items="{{items}}" wx:key="name" value="{{item.name}}" checked = "{{item.checked}}">
+              <text>{{item.value}}</text>
+          </radio>
+      </radio-group>
+    </view>
+  </view> -->
+
+    <view class="pay-info">
+      <view class="pay-font1">
+        <view>订单金额：<text style="color:red">￥{{price}}</text></view>
+      </view>
+      <view class="pay-font1">
+        <view>优惠金额：<text style="color:red">￥0.00</text></view>
+      </view>
+      <view class="pay-font1">
+        <view>配送金额：<text style="color:red">￥{{freight_price}}</text></view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class="foot">
+    <view class="total">合计：</view>
+    <view class="price">￥{{num_price}}</view>
+    <view class="pay" bindtap="submit" data-payment="2">微信支付</view>
+    <view class="pay" bindtap="submit" data-payment="4">授信挂账</view>
+  </view>
+  
+
+</view>

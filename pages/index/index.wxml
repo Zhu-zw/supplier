@@ -1,0 +1,107 @@
+<!--pages/xlcindex/xlcindex.wxml-->
+<view class="content">
+  <view class="up-top">
+    
+    <!-- <view class="top-store">
+      <view class="iconfont icon-fenxiang_2" style="width:60rpx;height:60rpx;font-size:50rpx;margin-left:40rpx"></view>
+      <view class="store-font">分享邀请</view>
+    </view> -->
+    
+    <view class="up-left">
+      <view class="up-img">
+        <image src="{{userInfo['avatarUrl']}}"></image>
+      </view>
+    </view>
+    
+    <view class="up-right">
+      <view class="up-font1" style="margin-top: 18%;font-size:32rpx">{{userInfo['nickName']?userInfo['nickName']:'请授权登录！'}}</view>
+      <view class="up-font1">{{userInfo['address']}}</view>
+    </view>
+    
+  </view>
+
+
+  <view class="infor">
+    <ul style="height: 100%;">
+      <li>
+        <view class="infor-font2">￥{{market['inventory']?market['inventory']:0}}</view>
+        <view class="infor-font3">我的库存</view>
+      </li>
+      <li>
+        <view class="infor-font2">￥{{market['today_market']?market['today_market']:0}}</view>
+        <view class="infor-font3">今日销售</view>
+      </li>
+      <li>
+        <view class="infor-font2">￥{{market['shares']?market['shares']:0}}</view>
+        <view class="infor-font3">共享股东</view>
+      </li>
+      <li>
+        <view class="infor-font2">￥{{market['income']?market['income']:0}}</view>
+        <view class="infor-font3">今日收入</view>
+      </li>
+    </ul>
+  </view>  
+
+  <view class="infor2">
+    <ul style="height: 100%;">
+      <li>
+          <view class="infor2-list" style="background-color:  #f95f61;" bindtap="selling">
+            <view class="iconfont icon-beihuodan"></view>
+          </view>
+          <view class="infor2-font1">在售商品</view>
+      </li>
+
+      <li>
+          <view class="infor2-list" style="background-color: #407fff;"  bindtap="order">
+            <view class="iconfont icon-jilu2"></view>
+          </view>
+          <view class="infor2-font1">销售订单</view>
+      </li>    
+
+      <li>
+          <view class="infor2-list" style="background-color: #f98480;" bindtap="myfans">
+            <view class="iconfont icon-fensi1"></view>
+          </view>
+          <view class="infor2-font1">我的好友</view>
+      </li>
+
+      <li>
+          <view class="infor2-list" style="background-color: #f96895;" bindtap="shareholders">
+            <view class="iconfont icon-kefu"></view>
+          </view>
+          <view class="infor2-font1">共享股东</view>
+      </li>
+      
+      <li>
+          <view class="infor2-list" style="background-color: #f95f61;" bindtap="centralware">
+            <view class="iconfont icon-kucunguanli1"></view>
+          </view>
+          <view class="infor2-font1">中心仓库</view>
+      </li>
+
+      <li>
+          <view class="infor2-list" style="background-color: #f96895;" bindtap="stockorder">
+            <view class="iconfont icon-dingdan"></view>
+          </view>
+          <view class="infor2-font1">备货清单</view>
+      </li>   
+
+      <li>
+          <view class="infor2-list" style="background-color:  #fbae28;" bindtap="myinventory">
+            <view class="iconfont icon-kucunguanli"></view>
+          </view>
+          <view class="infor2-font1">我的库存</view>
+      </li>
+
+      <li>
+          <view class="infor2-list" style="background-color:  #20d8f3;" bindtap="vin">
+            <view class="iconfont icon-sousuo1"></view>
+          </view>
+          <view class="infor2-font1">车架号</view>
+      </li>
+
+      
+    </ul>
+  </view>
+
+</view>

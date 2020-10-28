@@ -1,0 +1,446 @@
+
+page{
+  background-color: #f2f2f2;
+  height: 100%;
+}
+.content{
+  height: 100%;
+  width: 100%;
+}
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1595477423226'); /* IE9 */
+  src: url('iconfont.eot?t=1595477423226#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,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') format('woff2'),
+  url('iconfont.woff?t=1595477423226') format('woff'),
+  url('iconfont.ttf?t=1595477423226') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1595477423226#iconfont') format('svg'); /* iOS 4.1- */
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 50rpx;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-top: 25rpx;
+  margin-left: 5%;
+  width: 10%;
+  float: left;
+}
+.icon-dingwei:before {
+  content: "\e79c";
+}
+.address{
+  width: 100%;
+  background-color: white;
+  margin-top: 20rpx;
+  float: left;
+}
+.address2{
+  width: 100%;
+  background-color: white;
+  margin-top: 10rpx;
+  float: left;
+}
+.pickup{
+  width: 100%;
+  height: 200rpx;
+  background-color: white;
+  margin-top: 10rpx;
+  float: left;
+}
+.service{
+  width: 100%;
+  background-color: white;
+  margin-top: 10rpx;
+  float: left;
+}
+.payment{
+  width: 100%;
+  height: 100rpx;
+  background-color: white;
+  margin-top: 10rpx;
+  float: left;
+}
+.pay-info{
+  width: 100%;
+  height: 250rpx;
+  background-color: white;
+  margin-top: 20rpx;
+  float: left;
+}
+.add-left{
+  width: 80%;
+  float: left;
+}
+.order-font1{
+  font-size: 35rpx;
+  margin-left: 5%;
+  margin-top: 20rpx;
+}
+.order-font2{
+  font-size: 25rpx;
+  margin-left: 5%;
+  margin-top: 10rpx;
+  margin-bottom: 20rpx;
+}
+.order-font3{
+  float: left;
+  width: 20%;
+  height: 50rpx;
+  line-height: 50rpx;
+  border:#00a0ea solid 2rpx;
+  margin-left: 5%;
+  margin-top: 30rpx;
+  text-align: center;
+  font-size: 25rpx;
+  border-radius: 10rpx;
+}
+.order-font4{
+  font-size: 30rpx;
+  margin-top: 10rpx;
+  margin-bottom: 20rpx;
+}
+.order-font5{
+  font-size: 35rpx;
+  margin-left: 5%;
+  margin-top: 20rpx;
+}
+.order-font6{
+  margin-left: 5%;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+#add-right{
+  width: 20%;
+  float: left;
+  text-align: center;
+  height: 100rpx;
+  margin-top: 90rpx;
+  color: #b5b2b2;
+}
+.service-add{
+  width: 65%;
+  float: left;
+  margin-top: 20rpx;
+  margin-bottom: 10rpx;
+}
+.change{
+  width: 10%;
+  float: left;
+  height: 50rpx;
+  margin-top: 7.5%;
+  margin-left: 5%;
+  color: #b5b2b2;
+}
+.pay-wx{
+  height: 100rpx;
+  line-height: 100rpx;
+  margin-left: 5%;
+}
+.pay-font1{
+  margin-left: 5%;
+  width: 80%;
+  height: 50rpx;
+  margin-top: 20rpx;
+}
+.foot{
+  width: 100%;
+  height: 8%;
+  background-color: white;
+}
+.total{
+  float: left;
+  margin-left: 5%;
+  width: 13%;
+  margin-top: 3%;
+  text-align: center;
+}
+.price{
+  float: left;
+  width: 22%;
+  margin-top: 2.3%;
+  color: red;
+  font-size: 40rpx;
+}
+.pay{
+  float: right;
+  width: 25%;
+  margin-top: 3%;
+  height: 60rpx;
+  line-height: 60rpx;
+  background-color: #00a0ea;
+  text-align: center;
+  color: white;
+  border-radius: 30rpx;
+  margin-right: 3%;
+}
+.radio{
+  margin-right: 50rpx;
+}
+
+.checkboxgroup{
+  width: 100%;
+  margin-top: 20rpx;
+}
+.parameter-info{
+  font-size:25rpx;
+  border-radius:12rpx;
+  background-color:white;
+  border: #14a1fd solid 2rpx;
+  width:25%;
+  height:60rpx;
+  line-height: 60rpx;
+  float: left;
+  text-align: center;
+  margin-left: 5%;
+}
+.checked_parameter{
+  color:white;
+  background-color: #14a1fd;
+}
+
+/* 底部弹框 */
+/*使屏幕变暗  */
+.commodity_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.2;
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+}
+/*对话框 */
+.commodity_attr_box {
+  height: 500rpx;
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  background: #fff;
+  padding-top: 20rpx;
+}
+.show-font1{
+  width: 100%;
+  height: 10%;
+  text-align: center;
+}
+
+.commodity{
+  width: 100%;
+  float: left;
+  background-color: white;
+  margin-top: 10rpx;
+}
+.com-top{
+  width: 100%;
+  height: 28px;
+  float: left;
+  padding-left: 5%;
+}
+.ckb-img{
+  width: 25%;
+  height: 100%;
+  float: left;
+}
+.ckb-img image{
+  width: 100%;
+  height: 70%;
+  margin-top: 15%;
+  /* margin-left: 15%; */
+}
+.goods-name{
+  width: 400rpx;
+  height: 120rpx;
+  font-size: 25rpx;
+  text-align: left;
+  color: #716d6d;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: left;
+}
+.goods-box{
+  width: 90%;
+  height: 30%;
+  float: left;
+}
+.box2{
+  width: 50%;
+  height: 100%;
+  float: right;
+}
+.box-price{
+  width: 43%;
+  height: 100%;
+  float: left;
+  font-size: 25rpx;
+  margin-top: 10rpx;
+}
+
+.box2 text {  
+  width: 60rpx;
+  height: 45rpx;
+  line-height: 40rpx;
+  border: black solid 2rpx; 
+  text-align: center;
+  float: left;  
+}  
+.box2 input {  
+  width: 90rpx;
+  height: 45rpx;
+  line-height: 40rpx;
+  border-top: black solid 2rpx;
+  border-bottom: black solid 2rpx;
+  float: left;  
+  text-align: center;  
+  font-size: 25rpxpx;
+}  
+/*普通样式*/  
+.box2 .normal{  
+  color: black;  
+}  
+
+/*禁用样式*/  
+.box2 .disabled{  
+  color: #ccc;  
+}  
+.com-right2{
+  margin-left: 20rpx;
+  float: left;
+  width: 70%;
+  height: 100%;
+}
+.mod-store{
+  width: 230rpx;
+  height: 100rpx;
+  font-size: 25rpx;
+  color: #716d6d;
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 15rpx;
+}
+.mod-rad{
+  display: block;
+  margin-bottom: 40rpx;
+}
+.mod-text{
+  width: 120rpx;
+  height: 100rpx;
+  text-align: center;
+  margin-left: 20rpx;
+  font-size: 18rpx;
+  color: #716d6d;
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mod-img{
+  width: 100rpx;
+  height: 100rpx;
+  background-color: cornflowerblue;
+  float: left;
+  margin-left: 10rpx;
+}
+.mod-img image{
+  width: 100%;
+  height: 100%;
+}
+.mask_layer {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 999;
+  left:0;
+  top:0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+}
+.modal_box {
+  width: 76%;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 1001;
+  background: #fafafa;
+  margin: -150px 12% 0 12%;
+  border-radius: 3px;
+}
+ 
+.title {
+  padding: 15px;
+  text-align: center;
+  background-color: gazure;
+}
+ 
+.content {
+  overflow-y: scroll; /*超出父盒子高度可滚动*/
+}
+ 
+ .input_show1{
+   margin: 0 auto;
+   width: 80%;
+   margin-left: 10%;
+   font-size: 32rpx;
+   text-align: center;
+ }
+.btn1 {
+  width: 100%;
+  margin-top: 65rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background-color: white;
+}
+ 
+.cancel {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  color: black;
+}
+ 
+.Sure {
+  width: 100%;
+  padding: 10px;
+  color: #44b549;
+  background-color: white;
+  border-left: 1px solid #d0d0d0;
+  text-align: center;
+}
+ 
+.modalMsg {
+  text-align: center;
+  margin-top: 45rpx;
+  display: block;
+}
+.con-sty{
+  width: 90%;
+  float: left;
+  margin-left: 5%;
+  border-bottom: rgb(180, 178, 178) solid 2rpx;
+  font-size: 30rpx;
+  padding: 10px 0;
+  margin-bottom: 10px;
+}
+.con-font1{
+  margin-left: 10rpx;
+}
+.con-font2{
+  margin-left: 30rpx;
+}
+.con-add{
+  margin-left: 10rpx;
+}
+

@@ -1,0 +1,33 @@
+<!--pages/chat/chat.wxml-->
+<view>
+  <view>
+     <block wx:if="{{list.length>0}}">
+      <view class="chat-list" wx:for="{{list}}">
+        <navigator url="../chat-interface/chat-interface?message_pid={{item.id}}">
+      <view class="chat_img">
+        <image class="img" src="{{item.img}}"></image>
+      </view>
+  
+      <view class="chat-box">
+        <view class="customer1">{{item.companyname}}</view>
+        <view class="customer2">
+                <block wx:if="{{item.type==1}}">{{item.newxx}}</block>
+                <block wx:elif="{{item.type==2}}">[照片]</block>
+                <block wx:elif="{{item.type==3}}">[商品]</block>
+                <block wx:elif="{{item.type==4}}">[询价]</block>
+                <block wx:else>[消息]</block>
+        </view>
+      </view>
+  
+      <view class="right">
+        <view class="time">{{item.add_time}}</view>
+        <view class="news" wx:if="{{item.count>0}}">{{item.count}}</view>
+      </view>
+    </navigator>
+    </view>
+    </block>
+    <block wx:else>
+        <view style="width:100%;text-align: center;margin-top:50%;font-size:14px;color:#444;">{{loading_tip}}</view>
+    </block>
+  </view>
+</view>

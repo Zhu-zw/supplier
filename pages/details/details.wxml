@@ -1,0 +1,177 @@
+<!--pages/details/details.wxml-->
+<import src ="../login/login.wxml"/>
+<template is="msgItem" data="{{canIUse,hasUserInfo,burl}}"/>
+<view class="content">
+
+  <scroll-view scroll-y="true" style="height:92%">
+  <div class="visit">浏览量：{{list.views?list.views:0}}</div>
+    <view class="con-window">
+      <!--轮播-->
+          <block wx:if="{{list['img'].length!=0}}">
+            <swiper class="swiper" indicator-dots="true" autoplay="true" interval="4000" duration="1000" circular="true">
+              <block wx:for="{{list['img']}}" wx:for-index="index" wx:key="index">
+               <swiper-item>
+                <view class="sw-img">
+                  <image src="{{item?item:'../../image/default_img.jpg'}}" 
+                    class="slide-image" mode="aspectFill" bindtap='previewImg' 
+                    data-previewUrls="{{list['img']}}" data-src="{{item?item:'../../image/default_img.jpg'}}"
+                  />
+                </view>
+              </swiper-item>
+              </block>
+            </swiper>
+          </block>
+          <block wx:else>
+            <image src="{{burl}}/static/image/moren.png" class="slide-image" style="width:100%;height:100%"/>
+        </block>
+    </view>    
+		
+    <view class="bg-1">
+     <view class="price">￥{{list.xsjg}}</view>
+     <view class="minimum">起订数量：2</view>
+     <view class="retail">￥89000</view>
+		
+      <view class="explain">
+        <view style="width:90%;float:left">
+        <!-- <text class="ex-v1" style="margin-left:0;">品牌件 博世</text> -->
+          <text class="ex-v1" style="margin-left:0;">{{list.cn_pjpz}}</text>
+          <text class="ex-v1">{{list.classify}}</text>
+        </view>
+        <text class="ex-v2">{{list.cat_name}}</text>
+      </view>
+    </view>
+
+
+    <view class="bg-1">
+      <view class="information">
+        
+        <view>
+          <view class="inf-width">
+            <view class="inf-v1">原厂编码：</view>
+            <view class="inf-v1">{{list.code}}</view>
+          </view>
+        </view>
+        <view>
+          <view class="inf-width">
+            <view class="inf-v1">通用号码：</view>
+            <view class="inf-v5">
+              <block wx:for="{{list.cj_code}}">
+                <text style="margin-right:15px">{{item}}</text>
+              </block>
+            </view>
+          </view>
+        </view>
+        <view>
+          <view class="inf-width">
+            <view class="inf-v1">配件品质：</view>
+            <view class="inf-v1">{{list.cn_pjpz}}</view>
+          </view>
+        </view>
+        <view>
+          <view class="inf-width">
+            <view class="inf-v1">库存数量：</view>
+            <view class="inf-v1">{{list.stock}}</view>
+          </view>
+        </view>
+        <view>
+          <view class="inf-width">
+            <view class="inf-v1">质保时间：</view>
+            <view class="inf-v1">{{list.bzts}}天</view>
+          </view>
+        </view>
+        <view>
+          <view class="inf-width">
+            <view class="inf-v1">商品规格：</view>
+            <view class="inf-v1">{{list.bzdw}}</view>
+          </view>
+        </view>
+        
+      </view>
+      
+      <view class="guarantee">
+        <block wx:if="{{list['clause'].length==0}}">
+            <view class="gua-v2">
+              暂无
+          </view>
+          </block>
+          <block wx:else>
+            <view class="gua-v2" wx:for="{{list['clause']}}">
+              {{item}}
+            </view>
+          </block>
+
+      </view>
+
+    </view>
+		
+    <view class="bg-1" style="margin-bottom:0;">
+      <view class="product">
+        <view class="inf-v1">商品介绍：</view>
+        <view class="inf-v4"><rich-text nodes="{{list.content}}"></rich-text></view>
+      </view>
+
+      <view class="car-model">
+        <view style="font-size:30rpx">适用车型：</view>
+        <view style="margin-left:15px;width:100%;height:100%">
+          <block wx:if="{{medium.length!=0}}"> 
+          <block wx:for="{{medium}}">
+            <view style="width:100%;padding-bottom:5px;font-size: 0.8rem;">
+              <text decode="{{true}}" space="{{true}}">{{item['a_content']}}</text>
+            </view>
+          </block>
+        </block>
+        <block wx:else>暂无车型</block>
+        </view>
+      </view>
+    </view>
+
+<!-- 浮窗 --> 
+    <!-- <view class="hide{{showView?'show':''}}">
+      <view class="win-shut" bindtap="onChangeShowState">X</view>
+      <view class="win-font1">产品：全部车型，全车配件</view>
+      <view class="win-font1">售后：质保期内，可退/换货</view>
+      <view class="win-font1">服务：一站式汽配采购服务，好多快省</view>
+      <view class="win-font1">保障：由行业商协会和工商做认证监督</view>
+    </view> -->
+
+  </scroll-view>
+  
+  <view class="foot">
+
+    <view class="foot-left">
+
+      <!-- <view class="foot-back" bindtap="store">
+        <view class="foot-img">
+          <image src="../../image/store.png"></image>
+        </view>
+        <view class="foot-font1">门店</view>
+      </view>
+
+      <view class="foot-back" bindtap="Collection">
+        <view class="foot-img">
+          <image wx:if="{{status}}" src="../../image/love.png"></image>
+          <image wx:else src="../../image/love_no.png"></image>
+        </view>
+        <view class="foot-font1">收藏</view>
+      </view>
+
+      <view class="foot-back" data-gysid="{{list.gys}}" data-pid="{{list.id}}" bindtap="imessage">
+        <view class="foot-img">
+          <image src="../../image/news.png"></image>
+        </view>
+        <view class="foot-font1" >客服</view>
+      </view> -->
+    </view>
+
+      <view class="foot-right" bindtap="getconfirm">
+          <view class="foot-font2" wx:if="{{list.xsjg}}">￥{{list.xsjg}}</view>
+          <view class="foot-font2" wx:if="{{list.xsjg}}" >立即优惠下单</view>
+          <view class="foot-font2" wx:else>商品已经下架</view>
+      </view>
+   
+  </view>
+		
+
+		
+		
+	</view>

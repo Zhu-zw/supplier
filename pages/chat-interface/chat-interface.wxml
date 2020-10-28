@@ -1,0 +1,96 @@
+<!--pages/chat-interface/chat-interface.wxml-->
+<view class="content" id="content">
+		<!-- <scroll-view id="scrollview" class="chat-window" scroll-y="true" :scroll-top="scrollTop" > -->
+		<view class="chat-window">
+		<scroll-view id="scrollview" scroll-y="true" scroll-top="{{scrollTop}}" style="height:100%" bindscrolltoupper="scrolltop" >
+			<!-- <view class="small-talk_time">12:18</view> -->
+			<!-- 聊天内容 -->
+			<view class="content-all">
+				<!-- 聊天窗口 -->
+				<view class="m-item">
+
+				<view class="donut {{showView?'show':'hide'}}" ></view>
+				<!-- <view class="image_tip">没有更多消息</view> -->
+
+<!-- 收信人 -->
+<view wx:for="{{xxlist}}" class="talk-{{item.rightLeft}}" id="item{{index+1}}">
+  <block wx:if="{{item.type==4}}">
+				<!-- 询价 -->
+	      <view class="inquiry">
+				<scroll-view scroll-y="true" style="height:100%">
+				<block wx:if="{{item.content['img'].length}}">
+          <view class="img_con">
+						<view class="in_left" wx:for="{{item.content['img']}}" wx:for-item="img">
+							<image src="{{url+img}}" data-src="{{url+img}}" bindtap='previewImg'></image>
+						</view>
+					</view>
+				</block>
+				  <view class="in_right">
+					    <view class="in_content">车型：<image wx:if="{{item.content.cx.img}}" src="{{burl+item.content.cx.img}}" style="width:25px;height:25px;margin-right:5px"></image><text>{{item.content.cx.name?item.content.cx.name:'无'}}</text></view>
+					    <view class="in_content">品质：<text>{{item.content.pz}}</text></view>
+					    <view class="in_content">开票：<text>{{item.content.Invoice_or_not}}</text></view>
+					    <view class="in_content">需求：<text style="text-align:right;">{{item.content.demand_content}}</text></view>
+					</view>
+				</scroll-view>
+				</view>
+	</block>
+	<block wx:else>
+	<!-- 收信人头像 -->
+	<view class="talk-photo-{{item.rightLeft}}">
+			<image src="{{xximg[item.zhid]}}" class="talk-img"></image>
+	</view>
+	
+	<view class="triangle-{{item.rightLeft}}"></view>
+	
+	<!-- 收信人消息 -->
+	<view class="talk-content-{{item.rightLeft}}">
+			<!-- <view class="talk-huge"></view> -->
+	     <view class="talk-title-{{item.rightLeft}}">
+					<view style="margin-left:5px;margin-right:5px" wx:if="{{item.type==1}}">{{item.content}}</view>
+	       	<view wx:if="{{item.type==2}}"><image src="{{burl+'/'+item.content}}" style="width:150px;height:150px;" bindtap="previewImage" data-src="{{burl+'/'+item.content}}"></image></view>
+	       	<view style="margin-left:5px;margin-right:5px" wx:if="{{item.type==3}}"> 
+						<view>{{item.content[0]}}</view>
+						<view>{{item.content[1]}}</view>
+						<view>{{item.content[2]}}</view>
+						<view>{{item.content[3]}}</view>
+						<view>{{item.content[4]}}</view>
+					</view>
+
+	     </view>
+	</view>
+	</block>
+ </view>
+  <view class="talk-right" wx:if="{{temp}}">
+       <view class="talk-photo-right">
+			   <image class="talk-img" src="{{xximg[user_id]}}" role="img"></image>
+			 </view>
+			 <view class="triangle-right"></view>
+			 
+			 <view class="talk-content-right">
+			    <view class="talk-title-right">
+					    <view style="margin-left:5px;margin-right:5px" wx:if="{{list.type==1}}">{{temp_name}}</view>
+							<view wx:elif="{{list.type==2}}"><image src="{{burl+'/'+temp_name}}" style="width:150px;height:150px;" bindtap="previewImage" data-src="{{burl+'/'+temp_name}}"></image></view>
+					</view>
+			 </view>
+			 <view class="ma_loading"> <view class="xcx-loading" wx:if="{{temp}}"></view></view>
+	 </view>
+
+
+</view>
+</view>
+</scroll-view>		
+		</view>
+
+		
+<view class="foot">
+			
+<!-- <input type="text" value="{{list.type!=2?list.message:''}}" placeholder="" class="chat-input" bindinput="content" confirm-type="send" bindconfirm='sendImessage' hold-keyboard="true"/> -->
+	<textarea type="text" value="{{list.type!=2?list.message:''}}" placeholder="" class="chat-input" bindinput="content" confirm-type="send" bindconfirm='sendImessage' hold-keyboard="true"  show-confirm-bar="{{false}}" cursor-spacing="10"></textarea>
+	<view class="chat-btn" bindtap="upload">
+				<image src="../../image/chat-btn.jpg"></image>
+			</view>
+			<view class="send-out" bindtap="sendImessage">发送</view>
+			
+		</view>
+		
+	</view>

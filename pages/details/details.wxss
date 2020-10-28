@@ -1,0 +1,420 @@
+/* pages/details/details.wxss */
+@import "../login/login.wxss";
+page {
+  background-color: #f4f4f4;
+  height: 100%;
+}
+.content{
+  height: 100%;
+  width: 100%;
+}
+.con-window{
+  background-color: #ededed;
+  height: 68%;
+}
+.con-image{
+  width: 100%;
+  height: 100%;
+}
+.explain{
+  width: 90%;
+  height: 8%;
+  margin-left: 5%;
+  font-size: 0.8rem;
+  margin-top: 20rpx;
+  float: left;
+}
+.ex-v1{
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  background-color: #ffe2e4;
+  float: left;
+  font-size: 30rpx;
+  padding: 0 20rpx;
+  margin-left: 20rpx;
+}
+.ex-v2{
+  width:90%;
+  margin-left: 20rpx;
+  font-size: 30rpx;
+  float: left;
+  margin: 15rpx 0;
+}
+.information{
+  margin-left: 5%;
+}
+.guarantee{
+  width: 90%;
+  margin-left: 5%;
+  float: left;
+  border-top: #93a2a8 solid 2rpx;
+}
+.gua-v1{
+  height: 60rpx;
+  line-height: 60rpx;
+  background-color: #00a0ea;
+  font-size: 0.9rem;
+  color: white;
+  text-align: center;
+  border-radius: 10rpx;
+  font-size: 12pt;
+  float: left;
+  margin-top: 10rpx;
+  padding: 0 15rpx;
+}
+.gua-v2{
+  background-color: #bde5fa;
+  color: #30383b;
+  height: 58rpx;
+  line-height: 56rpx;
+  float: left;
+  text-align: center;
+  margin-left: 30rpx;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  padding: 0 15rpx;
+  margin-top: 10rpx;
+}
+.inf-v1{
+  float: left;
+  font-size: 30rpx;
+}
+.inf-v5{
+  float: left;
+  font-size: 30rpx;
+  width: 70%;
+}
+
+.inf-width{
+  width: 90%;
+  /* height: 50rpx; */
+  float: left;
+  margin-top: 10rpx;
+}
+.mode{
+  float: left;
+  width: 20%;
+  height: 50rpx;
+  line-height: 50rpx;
+  border:#00a0ea solid 2rpx;
+  margin-left: 20rpx;
+  text-align: center;
+  font-size: 25rpx;
+}
+.pickup{
+  width:90%;
+  float: left;
+  margin-top:40rpx;
+  height: 60rpx;
+  margin-left: 5%;
+}
+.pic-method{
+  width: 25%;
+  height: 60rpx;
+  /* background-color: #636161; */
+  float: left;
+  margin-top: 10rpx;
+  font-size: 30rpx;
+}
+/* .service{
+  width:90%;
+  margin-top:30rpx;
+  height: 80rpx;
+  margin-left: 5%;
+  float: left;
+  border-bottom: #cbcaca solid 2rpx;
+} */
+.car-model{
+  width:90%;
+  margin-top:20rpx;
+  margin-left: 5%;
+  float: left;
+}
+/* .store{
+  float: left;
+  margin-left: 1%;
+} */
+/* .replace{
+  float: right;
+  margin-right: 5%;
+  color: #939191;
+} */
+.product{
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 20rpx;
+  float: left;
+}
+.foot{
+  width: 100%;
+  height: 8%;
+}
+.foot-back{
+  width: 20%;
+  height: 100%;
+  float: left;
+  margin-left: 10%;
+}
+.foot-img{
+  width: 60%;
+  height: 50%;
+  margin-left: 18%;
+}
+.foot-img image{
+  margin-top: 10rpx;
+  width: 100%;
+  height: 100%;
+}
+.foot-font1{
+  text-align: center;
+  font-size: 30rpx;
+  margin-top:10rpx;
+  color: #636161;
+}
+.foot-font2{
+  text-align: center;
+  color: white;
+  font-size: 0.8rem;
+  margin-top: 3%;
+}
+.foot-left{
+  height: 100%;
+  width: 60%;
+  float: left;
+  color: white;
+}
+.foot-right{
+  height: 100%;
+  width: 40%;
+  background-color:#00a0ea;
+  float: left;
+}
+.swiper{
+  height:100%;
+  width:100%;
+  background-color: white;
+}
+.sw-img{
+  width: 100%;
+  height: 100%;
+}
+.swiper image{
+  height:100%;
+  width:100%;
+}
+
+.checkboxgroup{
+  width: 75%;
+  float: left;
+  height: 100%;
+}
+.parameter-info{
+  font-size:14px;
+  border-radius:8px;
+  background-color:#f4f4f4;
+  border: #14a1fd solid 2rpx;
+  width:25%;
+  height:58rpx;
+  line-height: 58rpx;
+  float: left;
+  text-align: center;
+  margin-left: 5%;
+}
+.checked_parameter{
+  color:white;
+  background-color: #14a1fd;
+}
+.pro-sm{
+  width: 100%;
+  float: left;
+  text-align:center;
+  color:#cbcaca;
+  margin-top: 15rpx;
+  margin-bottom: 10rpx;
+}
+.mod-rad{
+  display: block;
+  margin-bottom: 40rpx;
+}
+.mod-store{
+  width: 230rpx;
+  height: 100rpx;
+  font-size: 25rpx;
+  color: #716d6d;
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 15rpx;
+}
+.mod-text{
+  width: 120rpx;
+  height: 100rpx;
+  text-align: center;
+  margin-left: 20rpx;
+  font-size: 18rpx;
+  color: #716d6d;
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mod-img{
+  width: 100rpx;
+  height: 100rpx;
+  background-color: cornflowerblue;
+  float: left;
+  margin-left: 10rpx;
+}
+.mod-img image{
+  width: 100%;
+  height: 100%;
+}
+
+.inf-v4{
+  width: 95%;
+  float: left;
+}
+.store{
+  width: 90%;
+  float: left;
+  margin-left: 5%;
+  border-top: #93a2a8 solid 2rpx;
+  margin-top: 40rpx;
+}
+.store-left{
+  width: 15%;
+  float: left;
+}
+.store-middle{
+  width: 65%; 
+  float: left;
+}
+.store-right{
+  width: 20%;
+  float: right;
+}
+.focus{
+  width: 90%;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  color: white;
+  background-color: #00a0ea;
+  float: left;
+  margin-left: 5%;
+  margin-top: 20rpx;
+  border-radius: 30rpx;
+}
+.navigation{
+  width: 90%;
+  float: left;
+  margin-left: 5%;
+  margin-top: 30rpx;
+  text-align: center;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.store-title{
+  width: 80%;
+  float: left;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+}
+.store-font1{
+  width: 90%;
+  float: left;
+  margin-top: 10rpx;
+  font-size: 30rpx;
+}
+.store-font2{
+  width: 90%;
+  float: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-top: 10rpx;
+  margin-bottom: 20rpx;
+  font-size: 30rpx;
+}
+.hide{
+  width: 90%;
+  height: 250rpx;
+  background-color: #fffecb;
+  position: fixed;
+  left: 5%;
+  bottom: 10%;
+  display: none;
+}
+.hideshow{ 
+  width: 90%;
+  height: 250rpx;
+  background-color: #fffecb;
+  position: fixed;
+  left: 5%;
+  bottom: 10%;
+  display: block;
+ }
+.win-shut{
+  text-align: right;
+  color: red;
+  width: 20%;
+  float: right;
+  margin-right: 20rpx;
+  font-weight: bold;
+}
+.win-font1{
+  width: 85%;
+  float: left;
+  font-size: 25rpx;
+  margin-left: 15%;
+  margin-bottom: 10rpx;
+}
+.bg-1{
+  width: 100%;
+  background-color: #ffffff;
+  float: left;
+  margin-bottom: 20rpx;
+}
+.visit{
+  background-color: rgba(31, 29, 29, 0.5);
+  position: absolute;
+  top: 63%;
+  z-index: 100;
+  color: white;
+  padding: 10rpx;
+  font-size:24rpx;
+  border-radius: 0 15rpx 15rpx 0;
+}
+
+.price{
+  width: 40%;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: red;
+  font-size: 50rpx;
+  margin-left: 5%;
+  margin-top: 20rpx;
+  float: left;
+}
+.minimum{
+  width: 30%;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: red;
+  font-size: 30rpx;
+  margin-left: 5%;
+  margin-top: 20rpx;
+  float: left;
+}
+.retail{
+  width: 40%;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #616161;
+  font-size: 35rpx;
+  margin-left: 6%;
+  float: left;
+}

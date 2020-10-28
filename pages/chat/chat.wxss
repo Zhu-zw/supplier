@@ -1,0 +1,154 @@
+/* pages/chat/chat.wxss */
+.chat-list{
+  width: 100%;
+  height: 150rpx;
+  /* background-color: wheat; */
+  border-bottom: #f4f4f4 solid 2rpx;
+}
+.chat_img{
+  width: 20%;
+  height: 150rpx;
+  float: left;
+}
+.img{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+}
+.customer1{
+  width: 80%;
+  /* background-color: #007AFF; */
+  float: left;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  margin-top: 20rpx;
+  color: #000000;
+  margin-left:5px;
+}
+.customer2{
+  width: 80%;
+  /* background-color: skyblue; */
+  float: left;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  margin-top: 20rpx;
+  color: #969896;
+  margin-left:5px;
+}
+.chat-box{
+  width: 50%;
+  height: 150rpx;
+  /* background-color: yellowgreen; */
+  float: left;
+}
+.right{
+  width: 30%;
+  height: 150rpx;
+  /* background-color: gold; */
+  float: right;
+}
+.time{
+  width: 100%;
+  /* background-color: #4CD964; */
+  margin-top: 20rpx;
+  color: #999999;
+  font-size: 14px;
+  text-align:center;
+}
+.news{
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  background-color: red;
+  border-radius: 50%;
+  margin-top: 10rpx;
+  margin-left: 50rpx;
+  text-align: center;
+  font-size: 12px;
+  color: white;
+}
+#dl{
+  position: fixed;
+  top: 0rpx;
+  width: 100%;
+  height: 100vh;
+  z-index:999;
+  background-color: rgb(116, 112, 112,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  text-align: center;
+}
+.dl_box{
+  width: 500rpx;
+  background:white;
+}
+.dl_box .offer_log{
+   width:50px;
+   height:50px;
+   border-radius:100px;
+   background:#fff;
+   margin:0px auto;
+   margin-top:-25px;
+   border:4px solid white;
+}
+.dl_box .offer_log image{
+  width:100%;
+  height:100%;
+  border-radius:100px;
+}
+.dl_box .remind_text{
+   font-size:22rpx;
+   color:#555;
+   margin-top: 25rpx;
+}
+/* .dl_box view{
+  margin-top:15px;
+  margin-bottom:15px;
+  margin-left:4px;
+  margin-right:4px;
+} */
+.dl_box .title{
+  font-size: 28rpx;
+  color: #000;
+  text-align: center;
+  margin-top: 50rpx;
+}
+.dl_box .btn{
+  display:flex;
+  margin:0px;
+  margin-top: 54rpx;
+}
+.dl_box .btn .close_btn:after{
+  border:none;
+  height:80rpx;
+  width:50%;
+  font-weight:normal;
+  font-size:24rpx;
+}
+.dl_box .btn .close_btn{
+   border:0px;
+   color:#666;
+   background-color:#eeeeee;
+   font-size:24rpx;
+   height:80rpx;
+   line-height:80rpx;
+}
+.dl_box .btn .out_btn{
+  background:#e93323;
+  color:white;
+  font-size:28rpx;
+  height:80rpx;
+  line-height:80rpx;
+}
+.imagesize{
+  display:flex;                   
+  justify-content: center;        
+ }
+ .imagesize image { 
+   width:90%;
+ }

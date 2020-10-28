@@ -1,0 +1,40 @@
+<!--pages/myfans/myfans.wxml-->
+<view class="content">
+    <view class="hunt">
+      <view class="up-top">
+
+        <input class="top-input1" placeholder="请输入粉丝名"></input>
+        <view class="top-search">
+          <view class="iconfont icon-sousuo"></view>
+        </view>
+<!-- 粉丝数 -->
+        <view class="fansnum">{{fanslist.length}}</view>
+
+      </view>     
+    </view>
+
+    <view class="myfans">
+      <scroll-view scroll-y="true" style="height:100%" >
+        <view class="fanslist" wx:for="{{fanslist}}">
+          <view class="list-left">
+            <image src="{{item.img}}"></image>
+          </view>
+          <view class="list-cen">
+            <view class="fans-name">{{item.username}}</view>
+            <view class="fans-time">加入时间：{{item.time}}</view>
+          </view>
+          <view class="list-right">
+            <view class="user-btn1">复制加微信</view>    
+            <view class="user-btn1">在线聊天</view>         
+          </view>
+        </view>
+
+        <!-- 加载更多 -->
+        <!-- <view class="jiaZai_more" >
+          <view class="loader" hidden="{{show1}}">Loading...</view>
+          <view hidden="{{show2}}" bindtap="jiazai">{{tip}}</view>
+        </view> -->
+
+      </scroll-view>
+    </view>
+</view>

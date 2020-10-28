@@ -1,0 +1,220 @@
+<!--pages/centralware2/centralware2.wxml-->
+<view class="content1">
+
+<!-- 车型弹框 -->
+<view class='shade' hidden='{{popup}}' bindtap='hidePopup'></view>
+<view class='shade_box popup' hidden='{{popup}}'>
+    <view class='cxtitle'>
+      <text>请选择车型：</text>
+      <text class="title-gb" bindtap="hidePopup">x</text>
+    </view>
+    <view class="shade-left" bindtap="showPopup2">
+      <!-- 品牌 -->
+      <scroll-view scroll-y="true" style="height:720rpx" scroll-into-view="{{toView}}" scroll-top="0" bindscroll="scrollTo" scroll-with-animation>
+        <view wx:for="{{alphabet}}" id="position{{index}}">
+          <view class="left-zimu"><text style="margin-left:20px">{{item}}</text></view>
+          <block wx:if="{{brandlist[item]}}">
+          <view class="left-brand" wx:for="{{brandlist[item]}}" wx:for-item="list" bindtap="showPopup2" data-val="{{'{'+list.id+'}'}}" data-value="{{list.name}}">
+            
+            <view class="left-img">
+              <image src="{{burl+list.img}}"></image>
+            </view>
+            <view class="left-title">
+              <text style="margin-left:15px">{{list.name}}</text>
+            </view>
+            
+          </view>
+          </block>
+          <block wx:else>
+          <view class="left-brand">
+            
+            <view class="left-img">
+            </view>
+            <view class="left-title">
+              <text style="margin-left:15px">暂无该汽车品牌</text>
+            </view>
+            
+          </view>
+          </block>
+        </view>
+      </scroll-view>
+    </view>
+    
+    <!-- 字母表 -->
+    <view class="shade-right">
+      <scroll-view scroll-y="true" style="height:720rpx" scroll-top="{{scrollTopRight}}">
+        <view class="right-zimu" wx:for="{{alphabet}}" data-index="{{index}}" bindtap="toScrollView">
+          {{item}}
+        </view>
+      </scroll-view>
+    </view>
+</view>
+
+
+<!-- 第二层 -->
+<view class='shade' hidden='{{popup2}}' bindtap='hidePopup2'></view>
+<view class='shade_box popup' hidden='{{popup2}}'>
+    <view class='cxtitle2'>
+      <text class="fanhui2" bindtap="fanhui2">{{' < '}}</text>
+      <text class="title-gb" bindtap="hidePopup2">x</text>
+    </view>
+    
+    <view class="second">
+      <scroll-view scroll-y="true" style="height:100%">
+        <view wx:for="{{qc2list}}">
+          <view class="secondlist" bindtap="showPopup3"><text style="margin-left:20rpx">{{item.name}}</text></view>
+        </view>
+      </scroll-view>
+    </view> 
+</view>
+
+
+<!-- 第三层 -->
+<view class='shade' hidden='{{popup3}}' bindtap='hidePopup3'></view>
+<view class='shade_box popup' hidden='{{popup3}}'>
+    <view class='cxtitle2'>
+      <text class="fanhui2" bindtap="fanhui3">{{' < '}}</text>
+      <text class="title-gb" bindtap="hidePopup2">x</text>
+    </view>
+    
+    <view class="second">
+      <scroll-view scroll-y="true" style="height:100%">
+        <view wx:for="{{qc3list}}">
+          <view class="secondlist" bindtap="showPopup4"><text style="margin-left:20rpx">{{item.name}}</text></view>
+        </view>
+      </scroll-view>
+    </view>
+</view>
+
+<!-- 第四层 -->
+<view class='shade' hidden='{{popup4}}' bindtap='hidePopup4'></view>
+<view class='shade_box popup' hidden='{{popup4}}'>
+    <view class='cxtitle2'>
+      <text class="fanhui2" bindtap="fanhui4">{{' < '}}</text>
+      <text class="title-gb" bindtap="hidePopup2">x</text>
+    </view>
+    
+    <view class="second2">
+      <scroll-view scroll-y="true" style="height:100%">
+
+        <checkbox-group bindchange="checkboxChange">
+          <view wx:for="{{listData}}" wx:key="">
+            <view class="secondlist">
+              <checkbox value="{{item.code}}" checked="{{item.checked}}" style="margin-left: 20rpx"/> <text>{{item.text}}</text>
+            </view> 
+          </view>
+        </checkbox-group>
+
+      </scroll-view>
+    </view>
+
+    <view class="sec-foot">
+      <checkbox  bindtap="selectall" style="margin-left: 20rpx"/>全选 
+      <view class="sec-btn" bindtap="confirmcx">确认</view> 
+    </view> 
+</view>
+
+
+  
+  <view class="search">
+    <view class="up-top">
+            <!-- 分类搜索 -->
+            <view class="input4" catchtap="bindShowMsg4">
+              <view class="inp-bg">
+                <view class="store-name2">{{search_name}}</view>
+                <view class="store-icon">
+                  <image src="../../image/choose.png"></image>
+                </view>
+              </view>
+            </view>      
+            <!-- 分类下拉列表 -->
+            <view class="select_box4" wx:if="{{select4}}">
+              <scroll-view scroll-y="true" style="height:100%">
+                <view wx:for="{{fl_list}}">
+                  <view class="select_one" bindtap="mySelect4" data-id="{{item.id}}" data-name="{{item.name}}">{{item.name}}</view>
+                </view>
+              </scroll-view>
+            </view>  
+      
+      
+      <input class="top-input1" placeholder="请输入商品关键字" bindinput="getkeywords"></input>
+      <view class="top-search">搜索</view>
+
+      <view class="top-cx" bindtap='showPopup'>
+        <view class="iconfont2 icon-yingyong"></view>
+        <view class="text-cx">车型</view>
+      </view>
+    </view>    
+  </view>
+
+  <view class="container">
+
+
+  <view class="container2">
+    <scroll-view class='nav_left' scroll-y='true'>
+      <block wx:for="{{cateItems}}" wx:key="{{index}}">
+        <view class="nav_left_items {{curNav==item.cate_id?'active':''}}" bindtap="switchRightTab" data-index='{{index}}' data-id="{{item.cate_id}}">{{item.cate_name}}</view>
+      </block>
+    </scroll-view>
+
+    
+    <scroll-view class="nav_right" scroll-y="true">
+      <!--如果有数据，才遍历项-->
+      <view wx:if="{{cateItems[curIndex].children.length>0}}" style="float:left">
+        <block wx:for="{{cateItems[curIndex].children}}" wx:key="{{index}}">
+          <view class="nav_right_items">
+            <!-- 图片 -->
+            <view class="rightpic">
+              <image src="{{item.image}}"></image>
+            </view>
+
+            <view class="rightinfo">
+              <view class="info-font1">123123135454545454545454545</view>
+              <view class="info-font1">商品型号：546546546</view>
+              <view class="info-font1">通用型号：789798798</view>
+              <view class="info-font1">{{' '}}品质：品牌件</view>
+              <view class="info-font1">价格：<text style="color: red;">￥999.99</text> <text>{{' '}}/个</text> </view>
+              <!-- 库存数量 -->
+              <view class="info-font1" style="height:50rpx">
+                <text style="float:left">库存：</text>
+                <input class="username-p2" value="{{number}}" disabled='{{isDisabled}}' bindinput="get_car_number"></input>
+                <view class="user-btn1{{showView?'':'show'}}" bindtap="changep2">{{showView?'修改':'确定'}}</view>
+                <view class="user-btn1{{showView?'show':''}}" bindtap="changep2">{{showView?'修改':'确定'}}</view>                
+              </view>
+            </view>
+
+          </view>
+        </block>
+
+      </view>
+
+      <!--如果无数据，则显示数据-->
+      <view class="nocate" wx:else>
+        <image src="http://pic2.cxtuku.com/00/05/79/b863e9dcc935.jpg"></image>
+        <text>该分类暂无数据</text>
+      </view>
+
+      <view class="jiaZai_more" >
+        <view class="loader" hidden="{{show1}}">Loading...</view>
+        <view hidden="{{show2}}" bindtap="jiazai">{{tip}}</view>
+      </view>
+      
+    </scroll-view>
+  </view>
+
+
+  </view>
+
+  <!-- <view class="foot">
+
+    <view class="footpic">
+      <image src="../../image/shopping-cart.jpg"></image>
+    </view>
+
+    <view class="foot-price">￥9999999</view>
+
+    <view class="foot-btn" bindtap="commodity">去结算{{' > '}}</view>
+
+  </view> -->
+
+</view>
